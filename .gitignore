@@ -357,3 +357,4 @@ render.experimental.xml
 *.keystore
 google-services.json
 *.hprof
+/src/main/resources/application-aws.properties
