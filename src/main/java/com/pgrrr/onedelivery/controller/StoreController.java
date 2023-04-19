@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/stores")
 @RequiredArgsConstructor
@@ -20,6 +21,7 @@ public class StoreController {
         List<StoreResponseDto> storeList = storeService.getStoreListByCategory(categoryId);
         return ResponseEntity.ok().body(storeList);
     }
+
     @GetMapping(params = {"categoryId", "address"})
     public ResponseEntity<List<StoreResponseDto>> loadStoreListByCategoryAddress(Long categoryId, String address) {
         List<StoreResponseDto> storeList = storeService.getStoreListByCategoryAddress(categoryId, address);

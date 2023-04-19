@@ -9,4 +9,11 @@
         FROM store
         WHERE category_id = #{categoryId};
     </select>
+    <select id="selectStoreListByCategoryAddress" parameterType="long" resultType="Store">
+        SELECT *
+        FROM store
+        WHERE category_id = #{categoryId}
+        AND address = #{address};
+    </select>
+
 </mapper>
