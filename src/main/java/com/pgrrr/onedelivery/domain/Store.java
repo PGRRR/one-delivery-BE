@@ -36,6 +36,7 @@ public class Store {
                 .name(this.name)
                 .phone(this.phone)
                 .status(this.status)
+                .img(this.img)
                 .minCost(this.minCost)
                 .tipPrice(this.tipPrice)
                 .categoryId(this.categoryId)
