@@ -5,5 +5,8 @@
 <configuration>
         <typeAliases>
                 <typeAlias alias="Store" type="com.pgrrr.onedelivery.domain.Store"/>
+                <typeAlias alias="Menu" type="com.pgrrr.onedelivery.domain.Menu"/>
         </typeAliases>
 </configuration>
+
+

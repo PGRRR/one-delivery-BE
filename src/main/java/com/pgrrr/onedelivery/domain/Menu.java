@@ -1,6 +1,7 @@
 package com.pgrrr.onedelivery.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.pgrrr.onedelivery.dto.MenuResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,6 +21,8 @@ public class Menu {
 
     private String dscrp;
 
+    private String img;
+
     @JsonFormat(
             shape = JsonFormat.Shape.STRING,
             pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSSSSS]",
@@ -34,15 +37,12 @@ public class Menu {
 
     private Long storeId;
 
-    public Menu toDto() {
-        return Menu.builder()
-                .menuId(this.menuId)
-                .name(this.name)
-                .price(this.price)
-                .dscrp(this.dscrp)
-                .created(this.created)
-                .updated(this.updated)
-                .storeId(this.storeId)
+    public MenuResponseDto toDto() {
+        return MenuResponseDto.builder()
+                .name(name)
+                .price(price)
+                .dscrp(dscrp)
+                .img(img)
                 .build();
     }
 }
