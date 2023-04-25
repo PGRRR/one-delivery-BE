@@ -17,12 +17,21 @@ public class StoreService {
 
     private final StoreMapper storeMapper;
 
+    /**
+     * @param categoryId 카테고리 아이디
+     * @return 카테고리 아이디에 해당하는 매장 리스트
+     */
     public List<StoreResponseDto> getStoreListByCategory(Long categoryId) {
         return storeMapper.selectStoreListByCategory(categoryId).stream()
                 .map(Store::toDto)
                 .collect(Collectors.toList());
     }
 
+    /**
+     * @param categoryId 카테고리 아이디
+     * @param address 매장 주소
+     * @return 카테고리 아이디와 매장 주소에 해당하는 매장 리스트
+     */
     public List<StoreResponseDto> getStoreListByCategoryAddress(Long categoryId, String address) {
         return storeMapper.selectStoreListByCategoryAddress(categoryId, address).stream()
                 .map(Store::toDto)

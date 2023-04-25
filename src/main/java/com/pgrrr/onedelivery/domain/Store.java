@@ -1,10 +1,10 @@
 package com.pgrrr.onedelivery.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pgrrr.onedelivery.dto.StoreResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -14,16 +14,35 @@ import java.time.LocalDateTime;
 public class Store {
 
     private Long storeId;
+
     private String name;
+
     private String phone;
+
     private String address;
+
     private String info;
+
     private String status;
+
     private String img;
+
     private Long minCost;
+
     private Long tipPrice;
+
+    @JsonFormat(
+            shape = JsonFormat.Shape.STRING,
+            pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSSSSS]",
+            timezone = "Asia/Seoul")
     private LocalDateTime created;
+
+    @JsonFormat(
+            shape = JsonFormat.Shape.STRING,
+            pattern = "yyyy-MM-dd'T'HH:mm:ss[.SSSSSS]",
+            timezone = "Asia/Seoul")
     private LocalDateTime updated;
+
     private Long categoryId;
 
     public enum StoreStatus {
