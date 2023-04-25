@@ -52,7 +52,7 @@ class StoreServiceTest {
                 .build();
 
 
-        when(storeMapper.selectStoreListByCategory(anyLong())).thenReturn(anyList());
+        when(storeMapper.findStoreListByCategory(anyLong())).thenReturn(anyList());
 
         //when
         List<StoreResponseDto> storeListByCategory = storeService.getStoreListByCategory(1L);

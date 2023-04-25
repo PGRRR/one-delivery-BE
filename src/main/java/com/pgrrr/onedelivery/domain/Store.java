@@ -23,7 +23,7 @@ public class Store {
 
     private String info;
 
-    private String status;
+    private StoreStatus status;
 
     private String img;
 
@@ -51,14 +51,14 @@ public class Store {
 
     public StoreResponseDto toDto() {
         return StoreResponseDto.builder()
-                .storeId(this.storeId)
-                .name(this.name)
-                .phone(this.phone)
-                .status(this.status)
-                .img(this.img)
-                .minCost(this.minCost)
-                .tipPrice(this.tipPrice)
-                .categoryId(this.categoryId)
+                .storeId(storeId)
+                .name(name)
+                .phone(phone)
+                .status(status)
+                .img(img)
+                .minCost(minCost)
+                .tipPrice(tipPrice)
+                .categoryId(categoryId)
                 .build();
     }
 
