@@ -4,12 +4,14 @@ import com.pgrrr.onedelivery.domain.Store;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface StoreMapper {
 
-    List<Store> selectStoreListByCategory(Long categoryId);
-    List<Store> selectStoreListByCategoryAddress(Long categoryId, String address);
+    List<Store> findStoreListByCategory(Long categoryId);
+    List<Store> findStoreListByCategoryAddress(Long categoryId, String address);
     Store selectStore(Long storeId);
-
+    Optional<Store> findStoreByName(String name);
+    void insertStore(Store store);
 }

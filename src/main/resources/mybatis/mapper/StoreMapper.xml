@@ -4,16 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.pgrrr.onedelivery.mapper.StoreMapper">
-    <select id="selectStoreListByCategory" parameterType="long" resultType="Store">
+    <select id="findStoreListByCategory" parameterType="long" resultType="Store">
         SELECT *
         FROM store
         WHERE category_id = #{categoryId};
     </select>
-    <select id="selectStoreListByCategoryAddress" parameterType="long" resultType="Store">
+    <select id="findStoreListByCategoryAddress" parameterType="long" resultType="Store">
         SELECT *
         FROM store
         WHERE category_id = #{categoryId}
         AND address = #{address};
     </select>
-
+    <select id="findStoreByName" parameterType="string" resultType="Store">
+        SELECT *
+        FROM store
+        WHERE name = #{name};
+    </select>
+    <insert id="insertStore" parameterType="Store">
+        INSERT INTO store(name, phone, address, info, status, img, min_cost, tip_price, category_id)
+        VALUES (#{name}, #{phone}, #{address}, #{info}, #{status}, #{img}, #{minCost}, #{tipPrice}, #{categoryId});
+    </insert>
 </mapper>
