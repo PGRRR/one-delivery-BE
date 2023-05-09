@@ -51,10 +51,16 @@ public class StoreController {
         return ResponseEntity.ok().body(store);
     }
 
+    /**
+     * 로그인 유저가 매장을 생성하는 메서드
+     *
+     * @param storeRequestDto 매장 생성 요청 DTO
+     * @return ResponseEntity CREATED 201
+     */
     @PostMapping
-    public ResponseEntity<Void> createStore(@Valid StoreRequestDto storeRequestDto) {
+    public ResponseEntity<Void> createStore(@RequestBody @Valid StoreRequestDto storeRequestDto) {
         storeService.createStore(storeRequestDto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
 }
