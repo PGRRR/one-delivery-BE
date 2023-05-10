@@ -359,3 +359,4 @@ google-services.json
 *.hprof
 /src/main/resources/application-aws.properties
 /dev.key
+/src/test/resources/application-aws.properties
