@@ -2,6 +2,7 @@ package com.pgrrr.onedelivery.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pgrrr.onedelivery.dto.StoreResponseDto;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,7 +10,7 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Getter
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class Store {
 
@@ -54,6 +55,7 @@ public class Store {
                 .storeId(storeId)
                 .name(name)
                 .phone(phone)
+                .address(address)
                 .status(status)
                 .img(img)
                 .minCost(minCost)

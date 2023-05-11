@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -20,15 +21,24 @@ public class StoreController {
     @NonNull
     private final StoreService storeService;
 
+    public static final int MIN_PAGE = 1;
+    public static final int MIN_SIZE = 1;
+
     /**
      * 카테고리 아이디에 해당하는 매장 목록을 가져오는 메서드
      *
      * @param categoryId 카테고리 아이디
+     * @param page       매장 리스트 페이지
+     * @param size       매장 리스트 사이즈
      * @return List
      */
     @GetMapping(params = "categoryId")
-    public ResponseEntity<List<StoreResponseDto>> getStoreListByCategory(Long categoryId) {
-        List<StoreResponseDto> storeList = storeService.getStoreListByCategory(categoryId);
+    public ResponseEntity<List<StoreResponseDto>> getStoreListByCategory(Long categoryId,
+                                                                         @RequestParam(required = false, value = "page", defaultValue = "1") int page,
+                                                                         @RequestParam(required = false, value = "size", defaultValue = "10") int size) {
+        page = Math.max(page, MIN_PAGE);
+        size = Math.max(size, MIN_SIZE);
+        List<StoreResponseDto> storeList = storeService.getStoreListByCategory(categoryId, page, size);
         return ResponseEntity.ok().body(storeList);
     }
 
