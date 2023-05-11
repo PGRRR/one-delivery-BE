@@ -27,8 +27,8 @@ public class StoreService {
      * @param categoryId 카테고리 아이디
      * @return 카테고리 아이디에 해당하는 매장 DTO 리스트
      */
-    public List<StoreResponseDto> getStoreListByCategory(Long categoryId) {
-        return storeMapper.findStoreListByCategory(categoryId).stream()
+    public List<StoreResponseDto> getStoreListByCategory(Long categoryId, int page, int size) {
+        return storeMapper.findStoreListByCategory(categoryId, size * (page - 1), size).stream()
                 .map(Store::toDto)
                 .collect(toList());
     }
