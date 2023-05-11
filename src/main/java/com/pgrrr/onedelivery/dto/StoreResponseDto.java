@@ -1,10 +1,11 @@
 package com.pgrrr.onedelivery.dto;
 
 import com.pgrrr.onedelivery.domain.Store;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class StoreResponseDto {
 
