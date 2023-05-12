@@ -2,6 +2,7 @@ package com.pgrrr.onedelivery.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pgrrr.onedelivery.dto.MenuResponseDto;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,7 +10,7 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Getter
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class Menu {
 

@@ -1,12 +1,13 @@
 package com.pgrrr.onedelivery.domain;
 
 import com.pgrrr.onedelivery.dto.OptionResponseDto;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class Option {
 
