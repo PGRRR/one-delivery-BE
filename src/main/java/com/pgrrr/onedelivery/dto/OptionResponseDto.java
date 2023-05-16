@@ -1,6 +1,7 @@
 package com.pgrrr.onedelivery.dto;
 
 import com.pgrrr.onedelivery.domain.Option;
+
 import lombok.*;
 
 @Getter
@@ -13,9 +14,6 @@ public class OptionResponseDto {
     private Long price;
 
     public Option toEntity() {
-        return Option.builder()
-                .name(name)
-                .price(price)
-                .build();
+        return Option.builder().name(name).price(price).build();
     }
 }

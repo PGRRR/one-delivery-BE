@@ -1,6 +1,7 @@
 package com.pgrrr.onedelivery.domain;
 
 import com.pgrrr.onedelivery.dto.OptionResponseDto;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,10 +18,6 @@ public class Option {
     private Long menuId;
 
     public OptionResponseDto toDto() {
-        return OptionResponseDto.builder()
-                .name(name)
-                .price(price)
-                .build();
+        return OptionResponseDto.builder().name(name).price(price).build();
     }
-
 }
