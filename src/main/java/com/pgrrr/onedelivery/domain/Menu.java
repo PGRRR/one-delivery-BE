@@ -2,6 +2,7 @@ package com.pgrrr.onedelivery.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pgrrr.onedelivery.dto.MenuResponseDto;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,11 +40,6 @@ public class Menu {
     private Long storeId;
 
     public MenuResponseDto toDto() {
-        return MenuResponseDto.builder()
-                .name(name)
-                .price(price)
-                .dscrp(dscrp)
-                .img(img)
-                .build();
+        return MenuResponseDto.builder().name(name).price(price).dscrp(dscrp).img(img).build();
     }
 }

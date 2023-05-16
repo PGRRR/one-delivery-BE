@@ -1,6 +1,7 @@
 package com.pgrrr.onedelivery.mapper;
 
 import com.pgrrr.onedelivery.domain.Store;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -10,7 +11,8 @@ import java.util.Optional;
 @Mapper
 public interface StoreMapper {
 
-    List<Store> findStoreListByCategory(@Param("categoryId") Long categoryId, @Param("page") int page, @Param("size") int size);
+    List<Store> findStoreListByCategory(
+            @Param("categoryId") Long categoryId, @Param("page") int page, @Param("size") int size);
 
     List<Store> findStoreListByCategoryAddress(Long categoryId, String address);
 

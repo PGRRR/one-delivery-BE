@@ -1,6 +1,7 @@
 package com.pgrrr.onedelivery.dto;
 
 import com.pgrrr.onedelivery.domain.Store;
+
 import lombok.*;
 
 @Getter

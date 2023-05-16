@@ -3,8 +3,10 @@ package com.pgrrr.onedelivery.controller;
 import com.pgrrr.onedelivery.dto.MenuResponseDto;
 import com.pgrrr.onedelivery.exception.DuplicateException;
 import com.pgrrr.onedelivery.service.MenuService;
+
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,8 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MenuController {
 
-    @NonNull
-    private final MenuService menuService;
+    @NonNull private final MenuService menuService;
 
     @GetMapping
     public void test() {
@@ -37,5 +38,4 @@ public class MenuController {
         List<MenuResponseDto> menuList = menuService.getMenuListByStoreId(storeId);
         return ResponseEntity.ok().body(menuList);
     }
-
 }

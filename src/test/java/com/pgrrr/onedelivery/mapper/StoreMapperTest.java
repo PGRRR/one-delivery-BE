@@ -1,6 +1,9 @@
 package com.pgrrr.onedelivery.mapper;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.pgrrr.onedelivery.domain.Store;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,27 +15,26 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 @ExtendWith(SpringExtension.class)
 @MybatisTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Sql(scripts = {"classpath:sql/truncate.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(
+        scripts = {"classpath:sql/truncate.sql"},
+        executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 class StoreMapperTest {
 
-    @Autowired
-    private StoreMapper storeMapper;
+    @Autowired private StoreMapper storeMapper;
 
     @DisplayName("카테고리 아이디로 매장 리스트 조회 성공")
     @Test
     void 매장리스트조회_카테고리() {
-        //given
+        // given
         storeMapper.insertStore(매장요청생성());
 
-        //when
+        // when
         List<Store> storeList = storeMapper.findStoreListByCategory(1L, 0, 10);
 
-        //then
+        // then
         assertThat(storeList.size()).isEqualTo(1);
     }
 
@@ -49,5 +51,4 @@ class StoreMapperTest {
                 .categoryId(1L)
                 .build();
     }
-
 }

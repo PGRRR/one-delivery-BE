@@ -2,6 +2,7 @@ package com.pgrrr.onedelivery.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pgrrr.onedelivery.dto.StoreResponseDto;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,7 +48,8 @@ public class Store {
     private Long categoryId;
 
     public enum StoreStatus {
-        OPENED_STORE, CLOSED_STORE
+        OPENED_STORE,
+        CLOSED_STORE
     }
 
     public StoreResponseDto toDto() {
@@ -63,5 +65,4 @@ public class Store {
                 .categoryId(categoryId)
                 .build();
     }
-
 }

@@ -1,11 +1,15 @@
 package com.pgrrr.onedelivery.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import com.pgrrr.onedelivery.ApiTest;
 import com.pgrrr.onedelivery.domain.Store;
 import com.pgrrr.onedelivery.dto.StoreRequestDto;
+
 import io.restassured.RestAssured;
 import io.restassured.response.ExtractableResponse;
 import io.restassured.response.Response;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
@@ -14,9 +18,9 @@ import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-@Sql(scripts = {"classpath:sql/truncate.sql"}, executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+@Sql(
+        scripts = {"classpath:sql/truncate.sql"},
+        executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 class StoreApiTest extends ApiTest {
 
     private static StoreRequestDto 매장등록요청_생성() {
@@ -34,13 +38,17 @@ class StoreApiTest extends ApiTest {
     }
 
     private static ExtractableResponse<Response> 매장등록요청(StoreRequestDto request) {
-        return RestAssured.given().log().all()
+        return RestAssured.given()
+                .log()
+                .all()
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .body(request)
                 .when()
                 .post("/stores")
                 .then()
-                .log().all().extract();
+                .log()
+                .all()
+                .extract();
     }
 
     @DisplayName("매장 등록 성공 - POST /stores")
@@ -59,16 +67,20 @@ class StoreApiTest extends ApiTest {
         매장등록요청(매장등록요청_생성());
         final Long categoryId = 1L;
 
-        final ExtractableResponse<Response> response = RestAssured.given().log().all()
-                .when()
-                .queryParam("categoryId", categoryId)
-                .get("/stores")
-                .then()
-                .log().all().extract();
+        final ExtractableResponse<Response> response =
+                RestAssured.given()
+                        .log()
+                        .all()
+                        .when()
+                        .queryParam("categoryId", categoryId)
+                        .get("/stores")
+                        .then()
+                        .log()
+                        .all()
+                        .extract();
 
         assertThat(response.statusCode()).isEqualTo(HttpStatus.OK.value());
         List<String> names = response.jsonPath().getList("name", String.class);
         assertThat(names).contains("매장이름");
     }
-
 }
