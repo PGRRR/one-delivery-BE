@@ -10,4 +10,5 @@ jobs:
       - uses: axel-op/googlejavaformat-action@v3
         with:
           args: "--replace --aosp"
-          commitMessage: "format: Google Java Format"
+          commit-message: "format: Google Java Format"
+          github-token: ${{ secrets.GH_TOKEN }}
