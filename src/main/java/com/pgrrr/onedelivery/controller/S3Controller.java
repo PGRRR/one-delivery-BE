@@ -1,8 +1,8 @@
 package com.pgrrr.onedelivery.controller;
 
 import com.pgrrr.onedelivery.service.AwsS3Service;
-
 import com.pgrrr.onedelivery.util.CommonUtils;
+
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.core.io.ByteArrayResource;
@@ -31,10 +31,7 @@ public class S3Controller {
         ByteArrayResource resource = new ByteArrayResource(data);
         HttpHeaders headers = buildHeaders(resourcePath, data);
 
-        return ResponseEntity
-                .ok()
-                .headers(headers)
-                .body(resource);
+        return ResponseEntity.ok().headers(headers).body(resource);
     }
 
     private HttpHeaders buildHeaders(String resourcePath, byte[] data) {

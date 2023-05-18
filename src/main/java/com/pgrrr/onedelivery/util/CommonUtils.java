@@ -11,8 +11,9 @@ public class CommonUtils {
     private static final String FILE_EXTENSION_SEPARATOR = ".";
 
     public static ContentDisposition createContentDisposition(String categoryWithFileName) {
-        String fileName = categoryWithFileName.substring(
-                categoryWithFileName.lastIndexOf(CATEGORY_PREFIX) + UNDER_BAR_INDEX);
+        String fileName =
+                categoryWithFileName.substring(
+                        categoryWithFileName.lastIndexOf(CATEGORY_PREFIX) + UNDER_BAR_INDEX);
         return ContentDisposition.builder("attachment")
                 .filename(fileName, StandardCharsets.UTF_8)
                 .build();
