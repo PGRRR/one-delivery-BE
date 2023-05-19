@@ -20,10 +20,9 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class StoreController {
 
-    @NonNull private final StoreService storeService;
-
     public static final int MIN_PAGE = 1;
     public static final int MIN_SIZE = 1;
+    @NonNull private final StoreService storeService;
 
     /**
      * 카테고리 아이디에 해당하는 매장 목록을 가져오는 메서드

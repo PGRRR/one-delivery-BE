@@ -6,6 +6,7 @@ import com.pgrrr.onedelivery.domain.Store;
 import com.pgrrr.onedelivery.dto.StoreRequestDto;
 import com.pgrrr.onedelivery.dto.StoreResponseDto;
 import com.pgrrr.onedelivery.exception.DuplicateException;
+import com.pgrrr.onedelivery.exception.ErrorCode;
 import com.pgrrr.onedelivery.mapper.StoreMapper;
 
 import lombok.NonNull;
@@ -58,7 +59,7 @@ public class StoreService {
         Optional<Store> storeByName = storeMapper.findStoreByName(storeRequestDto.getName());
         storeByName.ifPresent(
                 store -> {
-                    throw new DuplicateException("이미 같은 이름의 매장이 있습니다. 다시 시도해주세요.");
+                    throw new DuplicateException(ErrorCode.STORE_DUPLICATION);
                 });
         storeMapper.insertStore(storeRequestDto.toEntity());
     }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.bind.support.WebExchangeBindException;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 @RestControllerAdvice
 @Slf4j
@@ -60,6 +61,14 @@ public class GlobalExceptionHandler {
                 .getAllErrors()
                 .forEach(error -> log.error("Error : {}", error.getDefaultMessage()));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+    }
+
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    protected ResponseEntity<ErrorResponse> handleMaxUploadSizeExceededException(
+            MaxUploadSizeExceededException e) {
+        logException(e);
+        ErrorResponse response = ErrorResponse.of(ErrorCode.FILE_SIZE_EXCEED);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
     private void logException(Throwable e) {
