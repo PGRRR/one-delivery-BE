@@ -2,6 +2,7 @@ package com.pgrrr.onedelivery.controller;
 
 import com.pgrrr.onedelivery.dto.MenuResponseDto;
 import com.pgrrr.onedelivery.exception.DuplicateException;
+import com.pgrrr.onedelivery.exception.ErrorCode;
 import com.pgrrr.onedelivery.service.MenuService;
 
 import lombok.NonNull;
@@ -24,7 +25,7 @@ public class MenuController {
 
     @GetMapping
     public void test() {
-        throw new DuplicateException("test");
+        throw new DuplicateException(ErrorCode.MENU_DUPLICATION);
     }
 
     /**

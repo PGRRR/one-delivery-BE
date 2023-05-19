@@ -39,7 +39,7 @@ public class AwsS3Service {
                     new PutObjectRequest(bucketName, fileName, inputStream, objectMetadata)
                             .withCannedAcl(CannedAccessControlList.PublicRead));
         } catch (IOException e) {
-            throw new FileUploadFailedException("파일 업로드가 실패하였습니다.");
+            throw new FileUploadFailedException(ErrorCode.FILE_UPLOAD_FAILED);
         }
 
         return amazonS3.getUrl(bucketName, fileName).toString();
@@ -59,13 +59,13 @@ public class AwsS3Service {
         try {
             return IOUtils.toByteArray(inputStream);
         } catch (IOException e) {
-            throw new FileDownloadFailedException("파일 다운로드가 실패하였습니다.");
+            throw new FileDownloadFailedException(ErrorCode.FILE_DOWNLOAD_FAILED);
         }
     }
 
     private void validateFileExistsAtUrl(String resourcePath) {
         if (!amazonS3.doesObjectExist(bucketName, resourcePath)) {
-            throw new FileNotFoundException("파일을 찾을 수가 없습니다.");
+            throw new FileNotFoundException(ErrorCode.FILE_NOT_FOUND);
         }
     }
 }

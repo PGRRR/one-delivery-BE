@@ -10,12 +10,21 @@ public enum ErrorCode {
     HANDLE_ACCESS_DENIED(403, "C006", "Access is Denied"),
 
     // Member
-    EMAIL_DUPLICATION(400, "M001", "Email Duplication"),
-    LOGIN_INPUT_INVALID(400, "M002", "Login Input Invalid"),
-    LOGIN_INPUT_INVALID_PASSWORD(400, "M003", "Login Input Invalid Password"),
+    EMAIL_DUPLICATION(400, "U001", "Email Duplication"),
+    LOGIN_INPUT_INVALID(400, "U002", "Login Input Invalid"),
+    LOGIN_INPUT_INVALID_PASSWORD(400, "U003", "Login Input Invalid Password"),
 
     // File
     FILE_SIZE_EXCEED(400, "F001", "File Size Exceed"),
+    FILE_DOWNLOAD_FAILED(500, "F002", "File Download Failed"),
+    FILE_UPLOAD_FAILED(500, "F003", "File Upload Failed"),
+    FILE_NOT_FOUND(500, "F004", "File Not Found"),
+
+    // Menu
+    MENU_DUPLICATION(400, "M001", "Menu Duplication"),
+
+    // Store
+    STORE_DUPLICATION(400, "S001", "Store Duplication"),
     ;
 
     private final int statusCode;
