@@ -1,0 +1,7 @@
+FROM openjdk:11-jdk
+LABEL maintainer="pgrrr119@gmail.com"
+LABEL authors="pgrrr"
+LABEL purpose="practice"
+ARG JAR_FILE=build/libs/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
