@@ -28,14 +28,11 @@ jobs:
           echo "${{ secrets.DATABASE }}" >> ./application-database.properties
         shell: bash
 
+      - name: Gradle Permission
+        run: chmod +x gradlew
+
       - name: Build with Gradle
         run: ./gradlew bootJar
-
-      - name: Publish Unit Test Result
-        uses: EnricoMi/publish-unit-test-result-action@v1
-        if: ${{ always() }}
-        with:
-          files: build/test-results/**/*.xml
 
       - name: web docker build and push
         run: |
