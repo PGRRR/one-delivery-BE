@@ -51,7 +51,8 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(DuplicateException.class)
     public ResponseEntity<String> handleDuplicateException(DuplicateException e) {
         logException(e);
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        ErrorCode errorCode = e.getErrorCode();
+        return ResponseEntity.status(errorCode.getStatusCode()).body(errorCode.getMessage());
     }
 
     @ExceptionHandler(WebExchangeBindException.class)
