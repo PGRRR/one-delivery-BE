@@ -41,7 +41,7 @@ public class GlobalExceptionHandler {
         StringBuilder builder = new StringBuilder();
         for (FieldError fieldError : bindingResult.getFieldErrors()) {
             builder.append(fieldError.getDefaultMessage());
-            builder.append("/n");
+            builder.append("\n");
         }
         String message = builder.toString();
         log.error(message);
