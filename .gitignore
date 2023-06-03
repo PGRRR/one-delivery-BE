@@ -361,3 +361,4 @@ google-services.json
 /dev.key
 /src/test/resources/application-aws.properties
 /src/main/resources/application-database.properties
+application-database.yml

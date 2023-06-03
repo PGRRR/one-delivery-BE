@@ -7,6 +7,6 @@ TRUNCATE TABLE order_menu;
 TRUNCATE TABLE pay;
 TRUNCATE TABLE store;
 TRUNCATE TABLE store_category;
-TRUNCATE TABLE user;
-TRUNCATE TABLE user_address;
+TRUNCATE TABLE member;
+TRUNCATE TABLE member_address;
 SET FOREIGN_KEY_CHECKS = 1;
