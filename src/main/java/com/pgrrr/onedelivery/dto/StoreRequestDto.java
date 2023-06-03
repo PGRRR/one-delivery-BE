@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 
 @Getter
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class StoreRequestDto {
 
