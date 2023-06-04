@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 import com.pgrrr.onedelivery.domain.Store;
+import com.pgrrr.onedelivery.domain.StoreStatus;
 import com.pgrrr.onedelivery.dto.StoreResponseDto;
 import com.pgrrr.onedelivery.mapper.StoreMapper;
 
@@ -29,7 +30,7 @@ class StoreServiceTest {
                 .phone("010-0000-0000")
                 .address("매장주소")
                 .info("매장정보")
-                .status(Store.StoreStatus.OPENED_STORE)
+                .status(StoreStatus.OPENED_STORE)
                 .img("매장이미지")
                 .minCost(3000L)
                 .tipPrice(3000L)

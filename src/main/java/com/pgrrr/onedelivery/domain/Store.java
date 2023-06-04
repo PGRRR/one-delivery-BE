@@ -47,11 +47,6 @@ public class Store {
 
     private Long categoryId;
 
-    public enum StoreStatus {
-        OPENED_STORE,
-        CLOSED_STORE
-    }
-
     public StoreResponseDto toDto() {
         return StoreResponseDto.builder()
                 .storeId(storeId)
