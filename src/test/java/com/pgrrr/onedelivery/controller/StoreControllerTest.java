@@ -7,7 +7,6 @@ import static org.mockito.Mockito.doReturn;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.google.gson.Gson;
-import com.pgrrr.onedelivery.domain.Store;
 import com.pgrrr.onedelivery.domain.StoreStatus;
 import com.pgrrr.onedelivery.dto.StoreRequestDto;
 import com.pgrrr.onedelivery.dto.StoreResponseDto;
