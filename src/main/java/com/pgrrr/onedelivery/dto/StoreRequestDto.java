@@ -1,8 +1,8 @@
 package com.pgrrr.onedelivery.dto;
 
 import com.pgrrr.onedelivery.domain.Store;
-
 import com.pgrrr.onedelivery.domain.StoreStatus;
+
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
