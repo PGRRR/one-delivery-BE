@@ -1,0 +1,10 @@
+logging:
+  level:
+    root: info
+  logback:
+    rollingpolicy:
+      max-history: 7
+      max-file-size: 10MB
+      file-name-pattern: ${LOG_FILE}.%d{yyyy-MM-dd}-%i.log
+  file:
+    name: logs/test.log

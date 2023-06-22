@@ -1,9 +1,10 @@
 package com.pgrrr.onedelivery.exception;
 
-public class FileDownloadFailedException extends RuntimeException {
+public class FileException extends RuntimeException {
+
     private final ErrorCode errorCode;
 
-    public FileDownloadFailedException(ErrorCode errorCode) {
+    public FileException(ErrorCode errorCode) {
         super(errorCode.getMessage());
         this.errorCode = errorCode;
     }

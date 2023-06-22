@@ -12,6 +12,12 @@
 - Mysql Replication을 통한 성능 개선을 위해 데이터베이스 이중화 구현을 목표로 하였습니다.
 - API 자동 문서화 툴을 사용하여 효율적인 API 문서 생성을 목표로 하였습니다.
 - AWS Lambda를 활용한 이미지 리사이징 작업 구현하여 서버의 부담을 줄이는 것을 목표로 하였습니다.
+- 다양한 프로젝트 환경을 경험하는 것을 목표로 하였습니다.
+  - Spring -> Spring Boot
+  - Maven -> Gradle
+  - MyBatis -> JPA
+  - Session -> JWT
+  - properties -> yml
 
 ## 프로젝트 주요 기능
 

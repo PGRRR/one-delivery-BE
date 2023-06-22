@@ -1,20 +1,24 @@
-package com.pgrrr.onedelivery.domain;
+package com.pgrrr.onedelivery.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.pgrrr.onedelivery.domain.StoreStatus;
 import com.pgrrr.onedelivery.dto.StoreResponseDto;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.*;
+
+@Entity
 @Getter
 @AllArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Builder
 public class Store {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "store_id")
     private Long storeId;
 
     private String name;
@@ -29,8 +33,10 @@ public class Store {
 
     private String img;
 
+    @Column(name = "min_cost")
     private Long minCost;
 
+    @Column(name = "tip_price")
     private Long tipPrice;
 
     @JsonFormat(
@@ -45,6 +51,7 @@ public class Store {
             timezone = "Asia/Seoul")
     private LocalDateTime updated;
 
+    @Column(name = "category_id")
     private Long categoryId;
 
     public StoreResponseDto toDto() {

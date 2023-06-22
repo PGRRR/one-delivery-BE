@@ -1,6 +1,7 @@
 package com.pgrrr.onedelivery.dto;
 
 import com.pgrrr.onedelivery.domain.Store;
+import com.pgrrr.onedelivery.domain.StoreStatus;
 
 import lombok.*;
 
@@ -25,7 +26,7 @@ public class StoreRequestDto {
     private String info;
 
     @NotNull(message = "매장 상태는 필수 입력 값입니다.")
-    private Store.StoreStatus status;
+    private StoreStatus status;
 
     @NotBlank(message = "매장 이미지는 필수 입력 값입니다.")
     private String img;

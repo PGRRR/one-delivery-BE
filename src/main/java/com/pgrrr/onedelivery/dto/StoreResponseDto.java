@@ -1,6 +1,7 @@
 package com.pgrrr.onedelivery.dto;
 
 import com.pgrrr.onedelivery.domain.Store;
+import com.pgrrr.onedelivery.domain.StoreStatus;
 
 import lombok.*;
 
@@ -13,7 +14,7 @@ public class StoreResponseDto {
     private String name;
     private String phone;
     private String address;
-    private Store.StoreStatus status;
+    private StoreStatus status;
     private String img;
     private Long minCost;
     private Long tipPrice;

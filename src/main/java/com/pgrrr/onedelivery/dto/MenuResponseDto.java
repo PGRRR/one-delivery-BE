@@ -10,11 +10,8 @@ import lombok.*;
 public class MenuResponseDto {
 
     private String name;
-
     private Long price;
-
     private String dscrp;
-
     private String img;
 
     public Menu toEntity() {
