@@ -1,19 +1,25 @@
 package com.pgrrr.onedelivery.service;
 
-import com.pgrrr.onedelivery.mapper.BoardMapper;
+import com.pgrrr.onedelivery.domain.Post;
+import com.pgrrr.onedelivery.mapper.BoardHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BoardService {
 
-    private BoardMapper boardMapper;
+    private final BoardHandler boardHandler;
 
     @Autowired
-    public BoardService(BoardMapper boardMapper) {
-        this.boardMapper = boardMapper;
+    public BoardService(BoardHandler boardHandler) {
+        this.boardHandler = boardHandler;
     }
 
-    public BoardService() {
+    public void createPost(Post post) {
+        boardHandler.createPost(post);
+    }
+
+    public Post getPost(Long id) {
+        return boardHandler.getPost(id);
     }
 }
